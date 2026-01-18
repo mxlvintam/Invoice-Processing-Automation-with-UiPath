@@ -46,11 +46,12 @@ Being a recent graduate in Singapore with interest in process improvement and pr
 # Branch Logic with Gateway
 1. Add exclusive gateway.
 2. Add task to execute connector activity. Select google drive as connector and desired activity. 
-3. Configure the gateway as approved and indicate the condition with C# expression editor. Check the status from the agent by inserting the variables from the agent (vars.status) and set it to "approve". ```vars.status == "approve"``` 
+3. Configure the gateway as approved and indicate the condition with C# expression editor. Check the status from the agent by inserting the variables from the agent (vars.status) and set it to "approve".
+```vars.status == "approve"``` 
 
-4. Add task for invoices to the reviewed. 
-5. For invoices to be reviewed, we would want to create an action app. Create an action app by selecting "+ Resource". Select simple approval template.
-6. Edit the contents of the approval app in the agentic process with C# expression editor.
+5. Add task for invoices to the reviewed. 
+6. For invoices to be reviewed, we would want to create an action app. Create an action app by selecting "+ Resource". Select simple approval template.
+7. Edit the contents of the approval app in the agentic process with C# expression editor.
 
 ```
 "Vendor Name:" + vars.vendorName + "\n" + "Invoice #:" + vars.invoiceNumber + "\n" + "Date:" + vars.invoiceDate + "\n" + "Total: $" + vars.invoiceAmount + "\n" + "Staus:" + vars.status + "\n" + "Reason: " + vars.reason
@@ -58,8 +59,10 @@ Being a recent graduate in Singapore with interest in process improvement and pr
 7. Add a gateway, and connecting it to the approved stage. Expand the conditions and label it as "approved" and input the condition with C# expression editor.
 ``` vars.action == "approve"```
 8. Add a new task on the gateway for rejected invoices. Select execute connector activity and the selected connector. Indicate desired activity. 
-9. On the gateway, label the rejection and specify the condition with C# expression editor. ```vars.action == "reject"```
-10. Set up condition for gateway of approve or review. Set up label for review and condition. ```vars.status == "review"```
+9. On the gateway, label the rejection and specify the condition with C# expression editor.
+```vars.action == "reject"```
+11. Set up condition for gateway of approve or review. Set up label for review and condition.
+```vars.status == "review"```
 
 # Testing the Full Workflow
 1. For action center, turn it on with the waffle menu admin, click on defaulttenant, services, and select actions.
@@ -72,4 +75,5 @@ Being a recent graduate in Singapore with interest in process improvement and pr
 To enable automation, select publish on the top and this process will be automated.
 
 # Closing Thoughts
+
 Being my first project on automation with UiPath, I find the application to be user-friendly. I foresee this tool to be used in many working environments and find is beneficial for everyone in all organisations to pick up such automation capabilities to improve productivity. 
